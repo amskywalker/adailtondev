@@ -2,7 +2,7 @@
   <main>
     <section class="section-container pt-14 pb-10">
       <p class="font-mono text-xs text-pink tracking-widest uppercase mb-4">// sobre</p>
-      <h1 class="text-4xl font-semibold text-white leading-tight mb-5">
+      <h1 class="text-3xl md:text-4xl font-semibold text-white leading-tight mb-5">
         Engenheiro Back-end<br />
         <span class="text-white/30">com sede de aprender.</span>
       </h1>
@@ -30,31 +30,23 @@
     <div class="section-container" style="border-top: 1px solid var(--border)" />
 
     <section class="section-container py-14">
-      <div class="text-center mb-12">
+      <div class="text-center mb-10">
         <p class="font-mono text-[10px] text-white/25 tracking-widest uppercase mb-2">trajetória</p>
         <h2 class="text-2xl font-semibold text-white tracking-wide">Jornada nas Estrelas</h2>
       </div>
 
-      <!-- Trilho de anos -->
-      <div ref="trilhoRef" class="relative flex items-center justify-between mb-14 px-2">
+      <!-- Trilho desktop -->
+      <div ref="trilhoRef" class="relative hidden md:flex items-center justify-between mb-14 px-2">
         <div
           class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px"
           style="background: var(--border)"
         />
-
-        <!-- Nave -->
         <div
           class="ship-wrap absolute z-20 top-1/2 pointer-events-none"
           :style="{ left: shipLeft + 'px', transform: 'translate(-50%, -50%)' }"
         >
           <div class="ship-trail" />
-          <svg
-            width="22"
-            height="14"
-            viewBox="0 0 22 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
             <path d="M2 7 L10 2 L20 7 L10 12 Z" fill="#e84393" opacity="0.9" />
             <ellipse
               cx="13"
@@ -69,7 +61,6 @@
             <path d="M8 5 L4 1 L10 4 Z" fill="#a97bff" opacity="0.7" />
           </svg>
         </div>
-
         <button
           v-for="(item, index) in timeline"
           :key="item.year"
@@ -90,16 +81,62 @@
         </button>
       </div>
 
+      <!-- Seletor mobile: dropdown -->
+      <div class="md:hidden mb-8 flex items-center gap-3">
+        <button
+          class="p-2 rounded-md text-white/40 hover:text-white transition-colors"
+          style="border: 1px solid var(--border)"
+          :disabled="activeIndex === 0"
+          @click="selectYear(timeline[activeIndex - 1].year, activeIndex - 1)"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        <div class="flex-1 text-center">
+          <span class="font-mono text-sm text-pink">{{ activeYear }}</span>
+          <span class="font-mono text-xs text-white/25 ml-2"
+            >{{ activeIndex + 1 }}/{{ timeline.length }}</span
+          >
+        </div>
+
+        <button
+          class="p-2 rounded-md text-white/40 hover:text-white transition-colors"
+          style="border: 1px solid var(--border)"
+          :disabled="activeIndex === timeline.length - 1"
+          @click="selectYear(timeline[activeIndex + 1].year, activeIndex + 1)"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+
       <!-- Card do ano ativo -->
       <transition name="fade" mode="out-in">
         <div :key="activeYear">
           <div
             v-if="activeEntry.lightspeed"
-            class="relative rounded-xl overflow-hidden h-64 flex items-center justify-center"
+            class="relative rounded-xl overflow-hidden h-52 md:h-64 flex items-center justify-center"
             style="border: 1px solid var(--border)"
           >
             <div class="lightspeed-bg absolute inset-0" />
-            <div class="relative z-10 text-center">
+            <div class="relative z-10 text-center px-4">
               <p class="font-mono text-xs text-pink tracking-widest uppercase mb-3">
                 em rota de colisão com o futuro
               </p>
@@ -112,11 +149,11 @@
 
           <div
             v-else
-            class="flex items-center gap-10"
-            :class="activeEntry.flip ? 'flex-row-reverse' : 'flex-row'"
+            class="flex flex-col md:items-center md:gap-10"
+            :class="activeEntry.flip ? 'md:flex-row-reverse' : 'md:flex-row'"
           >
             <div
-              class="w-64 shrink-0 rounded-xl overflow-hidden"
+              class="w-full md:w-64 shrink-0 rounded-xl overflow-hidden mb-6 md:mb-0"
               style="border: 1px solid var(--border)"
             >
               <img
@@ -136,7 +173,9 @@
 
             <div class="flex-1">
               <div class="flex items-center gap-4 mb-4">
-                <span class="text-3xl font-semibold text-white">{{ activeEntry.year }}</span>
+                <span class="text-2xl md:text-3xl font-semibold text-white">{{
+                  activeEntry.year
+                }}</span>
                 <div class="flex-1 h-px" style="background: var(--border)" />
               </div>
               <p class="text-sm text-white/50 leading-relaxed max-w-md italic font-serif">
@@ -299,7 +338,8 @@ const timeline = [
 ]
 
 const activeYear = ref(2017)
-const activeEntry = computed(() => timeline.find((t) => t.year === activeYear.value))
+const activeIndex = computed(() => timeline.findIndex((t) => t.year === activeYear.value))
+const activeEntry = computed(() => timeline[activeIndex.value])
 
 const trilhoRef = ref(null)
 const dotRefs = ref([])
@@ -380,7 +420,6 @@ onMounted(() => {
   background: #000;
   overflow: hidden;
 }
-
 .lightspeed-bg::before {
   content: '';
   position: absolute;
@@ -388,19 +427,11 @@ onMounted(() => {
   background: radial-gradient(ellipse at center, transparent 0%, #000 70%);
   z-index: 1;
 }
-
 .lightspeed-bg::after {
   content: '';
   position: absolute;
   inset: -100%;
   background-image:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 2px,
-      rgba(255, 255, 255, 0.03) 2px,
-      rgba(255, 255, 255, 0.03) 4px
-    ),
     radial-gradient(1px 80px at 10% 30%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
     radial-gradient(1px 120px at 25% 60%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
     radial-gradient(1px 60px at 40% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),

@@ -1,25 +1,28 @@
 <template>
   <main>
-    <section class="section-container flex items-center justify-between py-16 gap-12">
-      <div class="flex-1">
-        <h1 class="text-[2.6rem] font-semibold text-white leading-[1.1] mb-3">
+    <!-- HERO -->
+    <section
+      class="section-container flex flex-col-reverse md:flex-row items-center justify-between py-10 md:py-16 gap-8 md:gap-12"
+    >
+      <div class="flex-1 text-center md:text-left">
+        <h1 class="text-[2rem] md:text-[2.6rem] font-semibold text-white leading-[1.1] mb-3">
           Adailton<br />
           <span class="text-pink">Moura</span>
         </h1>
 
         <p class="text-base text-white/40 font-light mb-3">
-          Engenheiro Back-end Senior -
+          Senior Back-end Engineer ·
           <strong class="font-mono font-semibold text-amber">Java</strong>
           /
           <strong class="font-mono font-semibold text-purple">Kotlin</strong>
         </p>
 
-        <p class="text-sm text-white/30 leading-[1.7] max-w-[360px] mb-8">
+        <p class="text-sm text-white/30 leading-[1.7] max-w-[360px] mb-8 mx-auto md:mx-0">
           Construindo sistemas robustos e escaláveis. Apaixonado por arquitetura limpa, boas
           práticas e compartilhar o que aprendo.
         </p>
 
-        <div class="flex gap-3 flex-wrap">
+        <div class="flex gap-3 flex-wrap justify-center md:justify-start">
           <button class="btn-primary" @click="openCalendly">Agendar conversa</button>
           <a
             href="https://drive.google.com/file/d/12UfqHcmWcIKyb21Q8YxWTe-st5a3DmLc/view?usp=drive_link"
@@ -33,8 +36,10 @@
       <PixelAvatar />
     </section>
 
+    <!-- DIVIDER -->
     <div class="section-container" style="border-top: 1px solid var(--border)" />
 
+    <!-- POSTS -->
     <section class="section-container py-10 pb-[72px]">
       <div class="flex justify-end mb-6">
         <RouterLink
@@ -45,7 +50,8 @@
         </RouterLink>
       </div>
 
-      <div class="grid grid-cols-3 gap-4 items-stretch">
+      <!-- Mobile: coluna única. Tablet: 2 cols. Desktop: 3 cols -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
         <PostCard v-for="post in recentPosts" :key="post.slug" :post="post" />
       </div>
     </section>
