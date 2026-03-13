@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@theme {
+  --color-pink:        #e84393;
+  --color-pink-hover:  #d13080;
+  --color-amber:       #F59E0B;
+  --color-purple:      #a97bff;
+  --color-green:       #10B981;
+  --color-bg:          #0f0f0f;
+  --color-bg-card:     #1a1a1a;
+
+  --font-sans:  'Inter', sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  --max-width-content: 1000px;
+}
+
+:root {
+  --pink-dim:     rgba(232, 67, 147, 0.12);
+  --pink-border:  rgba(232, 67, 147, 0.25);
+  --border:       rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.15);
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  body { @apply bg-bg text-[#e0e0e0] font-sans min-h-screen antialiased; }
+  a      { @apply no-underline text-inherit; }
+  button { @apply cursor-pointer font-sans; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-[11px] bg-pink text-white border-none rounded-md text-sm font-semibold tracking-wide cursor-pointer transition-all duration-150;
+  }
+  .btn-primary:hover  { @apply bg-pink-hover; }
+  .btn-primary:active { @apply scale-[0.98]; }
+
+  .btn-outline {
+    @apply inline-block px-6 py-[10px] bg-transparent text-pink rounded-md text-sm font-medium tracking-wide transition-all duration-150;
+    border: 1px solid var(--pink-border);
+  }
+  .btn-outline:hover {
+    background: var(--pink-dim);
+    @apply border-pink;
+  }
+
+  .badge-article {
+    @apply self-start inline-block text-[9px] font-bold tracking-widest uppercase px-2 py-[2px] rounded-[3px];
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-amber);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+  .badge-quick {
+    @apply self-start inline-block text-[9px] font-bold tracking-widest uppercase px-2 py-[2px] rounded-[3px];
+    background: var(--pink-dim);
+    color: var(--color-pink);
+    border: 1px solid var(--pink-border);
+  }
+  .badge-tip {
+    @apply self-start inline-block text-[9px] font-bold tracking-widest uppercase px-2 py-[2px] rounded-[3px];
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-green);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .section-container {
+    @apply max-w-content mx-auto px-12;
+  }
+}
