@@ -40,8 +40,8 @@ import { Github, Linkedin, Mail } from 'lucide-vue-next'
 const links = [
   { to: '/', label: 'Home' },
   { to: '/sobre', label: 'Sobre' },
-  { to: '/projetos', label: 'Projetos' },
-  { to: '/blog', label: 'Blog' },
+  // { to: '/projetos', label: 'Projetos' },
+  // { to: '/blog', label: 'Blog' },
 ]
 
 const socials = [
