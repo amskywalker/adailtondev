@@ -8,7 +8,7 @@
         </h1>
 
         <p class="text-base text-white/40 font-light mb-3">
-          Senior Back-end Engineer ·
+          Engenheiro Back-end Senior -
           <strong class="font-mono font-semibold text-amber">Java</strong>
           /
           <strong class="font-mono font-semibold text-purple">Kotlin</strong>
