@@ -14,6 +14,8 @@
           :src="post.cover"
           :alt="post.title"
           class="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.04]"
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div class="flex flex-col gap-2 p-[18px] flex-1">

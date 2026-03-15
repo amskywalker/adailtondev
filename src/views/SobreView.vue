@@ -161,6 +161,8 @@
                 :src="activeEntry.photo"
                 :alt="`${activeYear}`"
                 class="w-full h-48 object-cover block"
+                loading="lazy"
+                decoding="async"
               />
               <div
                 v-else
@@ -260,70 +262,70 @@ const timeline = [
   {
     year: 2017,
     flip: false,
-    photo: '/sobre/2017.png',
+    photo: '/sobre/2017.webp',
     tag: 'O início',
     text: 'Tinha 14 anos e uma certeza: havia algo maior além do que o mundo ao redor oferecia. Encontrou num projeto de informática a primeira fagulha. Matemática, lógica, apostilas online às madrugadas. Ninguém precisou mandar. A curiosidade era o combustível.',
   },
   {
     year: 2018,
     flip: true,
-    photo: '/sobre/2018.png',
+    photo: '/sobre/2018.webp',
     tag: 'Primeiro lugar',
     text: 'Aos 15, passou em primeiro lugar no processo seletivo do Instituto Federal de Ciência e Tecnologia Sergipe. Não foi sorte. Foi a colheita de quem havia plantado no silêncio. O IFSE ensinaria a fazer, com as mãos e com precisão, com os melhores professores do Brasil.',
   },
   {
     year: 2019,
     flip: false,
-    photo: '/sobre/2019.png',
+    photo: '/sobre/2019.webp',
     tag: 'Aprendizado',
     text: 'O instituto ensinou a fazer. A lógica de programação deixou de ser exercício e se tornou linguagem. Os conceitos primordiais foram gravados não na memória, mas no instinto. As armas estavam prontas.',
   },
   {
     year: 2020,
     flip: true,
-    photo: '/sobre/2020.png',
+    photo: '/sobre/2020.webp',
     tag: 'Primeiro emprego',
     text: 'Três frentes ao mesmo tempo. Júnior na Agily, construindo aplicações reais com PHP e Vue.js para clientes de verdade. O TCC sendo escrito nas horas que sobravam. E um PIBIC sobre tecnologia e consumo energético, onde a pesquisa encontrou a engenharia. Foi o ano em que aprendeu que crescer rápido é uma escolha.',
   },
   {
     year: 2021,
     flip: false,
-    photo: '/sobre/2021.png',
+    photo: '/sobre/2021.webp',
     tag: 'Universidade',
     text: 'A Universidade Federal de Sergipe abriu o capô. Não bastava mais fazer. Era preciso entender o motor por dentro, cada peça, cada razão. A teoria chegou não para substituir a prática, mas para dar a ela uma profundidade que a prática sozinha não alcança.',
   },
   {
     year: 2022,
     flip: true,
-    photo: '/sobre/2022.png',
+    photo: '/sobre/2022.webp',
     tag: 'Pesquisa',
     text: 'O engajamento na vida acadêmica foi além das salas de aula. Eventos, debates, e então um convite inesperado: um projeto de pesquisa de algoritmos de inteligência artificial para extração de dados de poços de petróleo a partir de PDFs. Foi preciso criar, praticamente do zero, um interpretador capaz de traduzir PostScript em dados estruturados. Um problema sem manual. A solução nasceu da teimosia.',
   },
   {
     year: 2023,
     flip: false,
-    photo: '/sobre/2023.png',
+    photo: '/sobre/2023.webp',
     tag: 'Júnior',
     text: 'A Procuradoria Municipal foi o campo de batalha real. Chegou júnior, cheio de ideias e com sede de provar. Cada desafio era um nível a superar. Cada entrega, uma promessa cumprida. A promoção para pleno não demorou.',
   },
   {
     year: 2024,
     flip: true,
-    photo: '/sobre/2024.png',
+    photo: '/sobre/2024.webp',
     tag: 'Sênior',
     text: 'Técnica e maturidade cresceram juntas. O conhecimento deixou de ser apenas código e se tornou também gente. Comunicação, liderança, decisão sob pressão. A promoção para sênior confirmou o que a equipe já sabia: havia mais do que um bom desenvolvedor ali.',
   },
   {
     year: 2025,
     flip: false,
-    photo: '/sobre/2025.png',
+    photo: '/sobre/2025.webp',
     tag: 'Tech Lead',
     text: 'A promoção a Tech Lead não foi apenas um título. Foi o momento em que a jornada individual se tornou responsabilidade coletiva. Passou a guiar times, tomar decisões de arquitetura e responder pelo que outros constroem. Um peso novo. Uma satisfação maior.',
   },
   {
     year: 2026,
     flip: true,
-    photo: '/sobre/2026.png',
+    photo: '/sobre/2026.webp',
     tag: 'Presente',
     text: 'Membro técnico do Comitê de Transformação Digital da Prefeitura de Aracaju. Parcerias firmadas, programas de formação para o jovem cidadão elaborados. O código virou política pública. A engenharia virou impacto social. E a jornada continua.',
   },
